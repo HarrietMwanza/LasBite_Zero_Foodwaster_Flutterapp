@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import './take_bite.dart';
 import './login.dart';
 
 void main() {
@@ -146,13 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondScreen()));
-                                    },
+                                    onPressed: () {},
                                     child: Text('Get notified'),
                                   )
                                 ],
@@ -215,13 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondScreen()));
-                                    },
+                                    onPressed: () {},
                                     child: Text('Get notified'),
                                   )
                                 ],
@@ -284,13 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondScreen()));
-                                    },
+                                    onPressed: () {},
                                     child: Text('Get notified'),
                                   )
                                 ],
@@ -355,13 +336,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondScreen()));
-                                    },
+                                    onPressed: () {},
                                     child: Text('Get notified'),
                                   )
                                 ],
@@ -424,13 +399,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondScreen()));
-                                    },
+                                    onPressed: () {},
                                     child: Text('Get notified'),
                                   )
                                 ],
@@ -493,13 +462,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondScreen()));
-                                    },
+                                    onPressed: () {},
                                     child: Text('Get notified'),
                                   )
                                 ],
@@ -562,13 +525,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SecondScreen()));
-                                    },
+                                    onPressed: () {},
                                     child: Text('Get notified'),
                                   )
                                 ],
@@ -597,8 +554,8 @@ class _MyHomePageState extends State<MyHomePage> {
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.person),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Login()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Login()));
             }));
   }
 }
