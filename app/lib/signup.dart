@@ -50,7 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Sign up',
+                  'Join Us!',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
@@ -89,7 +89,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 const Text('Have an account?'),
                 TextButton(
                   child: const Text(
-                    'Signup',
+                    'Login',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
