@@ -1,146 +1,604 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import './take_bite.dart';
+import './login.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
-class RestaurantPage extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 250,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/restaurant_image.jpeg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 30,
-                  left: 10,
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    color: Colors.white,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: 20,
-                  left: 20,
-                  child: Text(
-                    "Lasbite",
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            'About Us',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 10),
-          Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac mi libero. Sed eget ante ante. Vivamus vel diam eget justo malesuada rhoncus. Ut vitae nunc nec nunc scelerisque fermentum. Donec a lacinia turpis, non efficitur nulla. Praesent auctor orci ut neque eleifend, eget dictum nisi facilisis. Vestibulum elementum justo quam, at fermentum risus ultricies vel.',
-            style: TextStyle(fontSize: 16),
-          ),
-          SizedBox(height: 20),
-          Text(
-            'Menu',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 10),
-          Expanded(
-            child: ListView(
-              children: [
-                MenuItem(
-                  title: 'Pasta',
-                  price: 12.99,
-                  description:
-                      "Pasta is the most deligious snack",
-                ),
-                MenuItem(
-                  title: "Pizza",
-                  price: 10.99,
-                  description:
-                      "We have both vegetable and meat pizza ",
-                ),
-                MenuItem(
-                  title: "Burger",
-                  price: 8.99,
-                  description:
-                      "Burgers are natural baked and the very deligious",
-                ),
-                MenuItem(
-                  title: "Salad",
-                  price: 6.99,
-                  description:
-                      "Salad are relatively cheap and are made out of chicken and beef",
-                ),
-                MenuItem(
-                  title: 'Fries',
-                  price: 4.99,
-                  description:
-                      "We have all the types of fries for instance chicken fries or meat",
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+    return MaterialApp(
+      title: '',
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: const MyHomePage(title: ''),
     );
   }
 }
 
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
 
-class MenuItem extends StatelessWidget {
   final String title;
-  final double price;
-  final String description;
-
-  const MenuItem({
-    required this.title,
-    required this.price,
-    required this.description,
-  });
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 5),
-          Text(
-            description,
-            style: TextStyle(fontSize: 16),
-          ),
-          SizedBox(height: 5),
-            ]),
-          
-            );
-         
+    return Scaffold(
+        backgroundColor: Colors.greenAccent,
+        body: Column(
+          children: [
+            Container(
+                height: 250.0,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                          "assets/images/baked-chicken-wings-asian-style-tomatoes-sauce-plate.jpg"),
+                      fit: BoxFit.cover,
+                      opacity: 0.5),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(50.0),
+                  ),
+                  color: Colors.white,
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 100.0,
+                      left: 40.0,
+                      child: Container(
+                        height: 100.0,
+                        width: 300.0,
+                        decoration: const BoxDecoration(
+                            color: Colors.white70,
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(50),
+                                topLeft: Radius.circular(50))),
+                      ),
+                    ),
+                    Positioned(
+                        top: 125,
+                        left: 50,
+                        child: Column(children: [
+                          Text(
+                            'LasBite.',
+                            style: GoogleFonts.josefinSans(
+                                textStyle: const TextStyle(
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green,
+                            )),
+                          ),
+                          Text(
+                            'Get that last bite.',
+                          )
+                        ]))
+                  ],
+                )),
+
+            // Starting the list of restaurants
+            Expanded(
+                child: ListView(
+              children: [
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/anto-meneghini-IrohWzafmmA-unsplash.jpg"),
+                                        fit: BoxFit.fill)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(children: [
+                                    Icon(Icons.star, color: Colors.yellow),
+                                    Text('4.5')
+                                  ]),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondScreen()));
+                                    },
+                                    child: Text('Get notified'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/anto-meneghini-IrohWzafmmA-unsplash.jpg"),
+                                        fit: BoxFit.fill)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(children: [
+                                    Icon(Icons.star, color: Colors.yellow),
+                                    Text('4.5')
+                                  ]),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondScreen()));
+                                    },
+                                    child: Text('Get notified'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/anto-meneghini-IrohWzafmmA-unsplash.jpg"),
+                                        fit: BoxFit.fill)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(children: [
+                                    Icon(Icons.star, color: Colors.yellow),
+                                    Text('4.5')
+                                  ]),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondScreen()));
+                                    },
+                                    child: Text('Get notified'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/top-view-vegetable-soup-with-meat-inside-plate-grey.jpg"),
+                                        fit: BoxFit.cover)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.star, color: Colors.yellow),
+                                      Text('4.5'),
+                                    ],
+                                  ),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondScreen()));
+                                    },
+                                    child: Text('Get notified'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/crab-tom-yum-mama-with-lemon-chili-tomato-garlic-lemongrass-kaffir-lime-leaves-plate.jpg"),
+                                        fit: BoxFit.cover)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(children: [
+                                    Icon(Icons.star, color: Colors.yellow),
+                                    Text('4.5')
+                                  ]),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondScreen()));
+                                    },
+                                    child: Text('Get notified'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/tender-juicy-veal-steak-medium-rare-with-french-fries.jpg"),
+                                        fit: BoxFit.cover)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(children: [
+                                    Icon(Icons.star, color: Colors.yellow),
+                                    Text('4.5')
+                                  ]),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondScreen()));
+                                    },
+                                    child: Text('Get notified'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table.jpg"),
+                                        fit: BoxFit.cover)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(children: [
+                                    Icon(Icons.star, color: Colors.yellow),
+                                    Text('4.5')
+                                  ]),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SecondScreen()));
+                                    },
+                                    child: Text('Get notified'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+              ],
+            ))
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Cart',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.person),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Login()));
+            }));
   }
 }
