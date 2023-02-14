@@ -19,7 +19,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'LasBite',
+                  'Welcome Back  to LasBite',
                   style: TextStyle(
                       color: Colors.lightGreen,
                       fontWeight: FontWeight.w500,
