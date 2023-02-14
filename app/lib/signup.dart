@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import './login.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   static const String _title = 'LasBite App';
 
   @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
+      title: SignUp._title,
+      theme: ThemeData(
+        primarySwatch: Colors.lightGreen,
+      ),
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(title: const Text(SignUp._title)),
         body: const MyStatefulWidget(),
       ),
     );
@@ -50,7 +57,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Join Us!',
+                  'Sign up',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
@@ -93,6 +100,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
                     //signup screen
                   },
                 )
