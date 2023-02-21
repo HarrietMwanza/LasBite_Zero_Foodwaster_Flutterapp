@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './login.dart';
+import './restaurant.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,10 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 250.0,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(
-                          "assets/images/baked-chicken-wings-asian-style-tomatoes-sauce-plate.jpg"),
-                      fit: BoxFit.cover,
-                      opacity: 0.5),
+                    image: AssetImage(
+                        "assets/images/baked-chicken-wings-asian-style-tomatoes-sauce-plate.jpg"),
+                    fit: BoxFit.cover,
+                  ),
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(50.0),
                   ),
@@ -146,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -209,7 +210,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -272,7 +273,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -337,7 +338,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -399,8 +400,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Get notified'),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Restaurant()));
+                                    },
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -463,7 +470,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -526,7 +533,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
