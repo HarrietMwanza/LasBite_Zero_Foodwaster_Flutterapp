@@ -146,7 +146,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Restaurant()));
+                                    },
                                     child: Text('Visit'),
                                   )
                                 ],
@@ -209,7 +215,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Restaurant()));
+                                    },
                                     child: Text('Visit'),
                                   )
                                 ],
