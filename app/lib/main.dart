@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './login.dart';
+import './restaurant.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,10 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 250.0,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(
-                          "assets/images/baked-chicken-wings-asian-style-tomatoes-sauce-plate.jpg"),
-                      fit: BoxFit.cover,
-                      opacity: 0.5),
+                    image: AssetImage(
+                        "assets/images/baked-chicken-wings-asian-style-tomatoes-sauce-plate.jpg"),
+                    fit: BoxFit.cover,
+                  ),
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(50.0),
                   ),
@@ -145,8 +146,83 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Get notified'),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Restaurant()));
+                                    },
+                                    child: Text('Visit'),
+                                  )
+                                ],
+                              ))),
+                    ])),
+                SizedBox(
+                    height: 250,
+                    child: Stack(children: [
+                      Positioned(
+                        top: 35,
+                        left: 20,
+                        child: Material(
+                            child: Container(
+                          height: 230.0,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        )),
+                      ),
+                      Positioned(
+                          top: 0,
+                          left: 30,
+                          child: Card(
+                              elevation: 10.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height: 200,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/anto-meneghini-IrohWzafmmA-unsplash.jpg"),
+                                        fit: BoxFit.fill)),
+                              ))),
+                      Positioned(
+                          top: 60,
+                          left: 200,
+                          child: Container(
+                              height: 150,
+                              width: 180,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Shangrila',
+                                      style: GoogleFonts.josefinSans(
+                                        textStyle: const TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      )),
+                                  Row(children: [
+                                    Icon(Icons.star, color: Colors.yellow),
+                                    Text('4.5')
+                                  ]),
+                                  Spacer(flex: 2),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Restaurant()));
+                                    },
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -209,70 +285,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
-                                  )
-                                ],
-                              ))),
-                    ])),
-                SizedBox(
-                    height: 250,
-                    child: Stack(children: [
-                      Positioned(
-                        top: 35,
-                        left: 20,
-                        child: Material(
-                            child: Container(
-                          height: 230.0,
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        )),
-                      ),
-                      Positioned(
-                          top: 0,
-                          left: 30,
-                          child: Card(
-                              elevation: 10.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: Container(
-                                height: 200,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            "assets/images/anto-meneghini-IrohWzafmmA-unsplash.jpg"),
-                                        fit: BoxFit.fill)),
-                              ))),
-                      Positioned(
-                          top: 60,
-                          left: 200,
-                          child: Container(
-                              height: 150,
-                              width: 180,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Shangrila',
-                                      style: GoogleFonts.josefinSans(
-                                        textStyle: const TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                        ),
-                                      )),
-                                  Row(children: [
-                                    Icon(Icons.star, color: Colors.yellow),
-                                    Text('4.5')
-                                  ]),
-                                  Spacer(flex: 2),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -337,7 +350,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -399,8 +412,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Spacer(flex: 2),
                                   ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Get notified'),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Restaurant()));
+                                    },
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -463,7 +482,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
@@ -526,7 +545,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Spacer(flex: 2),
                                   ElevatedButton(
                                     onPressed: () {},
-                                    child: Text('Get notified'),
+                                    child: Text('Visit'),
                                   )
                                 ],
                               ))),
