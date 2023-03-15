@@ -1,62 +1,33 @@
 {
   "project_info": {
-    "project_number": "141884684470",
-    "project_id": "flutter-e-commerce-maste-1f268",
-    "storage_bucket": "flutter-e-commerce-maste-1f268.appspot.com"
+    "project_number": "10696640579",
+    "project_id": "lasbite-202",
+    "storage_bucket": "lasbite-202.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:141884684470:android:e23715447e28cd25eace17",
+        "mobilesdk_app_id": "1:10696640579:android:75ff6403860e6c0c3b2cf6",
         "android_client_info": {
-          "package_name": "com.harrietapp"
+          "package_name": "zerowaste.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "141884684470-e5si07rcpbb9r7p0kgltpl11tf79b11o.apps.googleusercontent.com",
+          "client_id": "10696640579-v2jkbpmiqd6r3vaih6ub99a8s9qk5gu0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyACwAt-4i8HSyb7oFZAAXbLdThL-PxBynY"
+          "current_key": "AIzaSyBKnrsJS5C993kAvo7rtjcPE0ZuPS7vK7w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "141884684470-e5si07rcpbb9r7p0kgltpl11tf79b11o.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:141884684470:android:af31f3dda306e19beace17",
-        "android_client_info": {
-          "package_name": "group8.app"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "141884684470-e5si07rcpbb9r7p0kgltpl11tf79b11o.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyACwAt-4i8HSyb7oFZAAXbLdThL-PxBynY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "141884684470-e5si07rcpbb9r7p0kgltpl11tf79b11o.apps.googleusercontent.com",
+              "client_id": "10696640579-v2jkbpmiqd6r3vaih6ub99a8s9qk5gu0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
