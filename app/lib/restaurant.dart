@@ -1,3 +1,4 @@
+import 'package:app/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +20,7 @@ class Restaurant extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -81,36 +82,82 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.green,
                         )),
                       ),
-                      Text(
+                      const Text(
                         'Get that last bite.',
                       )
                     ]))
               ],
             )),
-        SizedBox(height: 40),
+        const SizedBox(height: 40),
+        const SizedBox(
+          child: Text(
+            'Kimironko, Zindiro, Kigali, Rwanda',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontSize: 20.0,
+              fontFamily: 'Josefin Sans',
+              fontWeight: FontWeight.bold,
+              color: Colors.grey,
+            ),
+          ),
+        ),
+        const SizedBox(
+          child: Text(
+            'KG601 ST',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontSize: 10.0,
+              fontFamily: 'Josefin Sans',
+              fontWeight: FontWeight.bold,
+              color: Colors.grey,
+            ),
+          ),
+        ),
+        const SizedBox(height: 40),
+        const SizedBox(
+          height: 70.0,
+          child: Text(
+            'Featured Items',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontSize: 40.0,
+              fontFamily: 'Josefin Sans',
+              fontWeight: FontWeight.bold,
+              color: Colors.grey,
+            ),
+          ),
+        ),
         SizedBox(
           height: 280.0,
           child: ListView(scrollDirection: Axis.horizontal, children: [
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             buildCard(),
-            SizedBox(width: 40),
+            const SizedBox(width: 40),
             buildCard(),
-            SizedBox(width: 40),
+            const SizedBox(width: 40),
             buildCard(),
-            SizedBox(width: 40),
+            const SizedBox(width: 40),
             buildCard(),
-            SizedBox(width: 40),
+            const SizedBox(width: 40),
             buildCard(),
-            SizedBox(width: 40),
+            const SizedBox(width: 40),
             buildCard(),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ]),
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
+        ),
+        SizedBox(height: 10),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MenuScreen()));
+          },
+          child: const Text('View Full Menu'),
         )
       ]),
     );
