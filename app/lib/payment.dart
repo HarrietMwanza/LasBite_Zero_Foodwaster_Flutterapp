@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import './login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SignUpPage extends StatefulWidget {
+class PaymentPage extends StatefulWidget {
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  _PaymentPageState createState() => _PaymentPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  // Declare variables for email and password
-  String _email, _password;
+class _PaymentPageState extends State<PaymentPage> {
+  // Declare variables for phone number and amount
+  String _phoneNumber, _amount;
 
   // Create a form key to validate the form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -19,7 +18,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text('Make Payment'),
       ),
       body: Form(
         key: _formKey,
@@ -28,31 +27,31 @@ class _SignUpPageState extends State<SignUpPage> {
             TextFormField(
               validator: (input) {
                 if (input.isEmpty) {
-                  return 'Please enter an email';
+                  return 'Please enter a phone number';
                 }
                 return null;
               },
-              onSaved: (input) => _email = input,
+              onSaved: (input) => _phoneNumber = input,
               decoration: InputDecoration(
-                labelText: 'Email',
+                labelText: 'Phone Number',
               ),
             ),
             TextFormField(
               validator: (input) {
-                if (input.length < 6) {
-                  return 'Password must be at least 6 characters';
+                if (input.isEmpty) {
+                  return 'Please enter an amount';
                 }
                 return null;
               },
-              onSaved: (input) => _password = input,
+              onSaved: (input) => _amount = input,
               decoration: InputDecoration(
-                labelText: 'Password',
+                labelText: 'Amount',
               ),
-              obscureText: true,
+              keyboardType: TextInputType.number,
             ),
             RaisedButton(
-              onPressed: signUp,
-              child: Text('Sign Up'),
+              onPressed: makePayment,
+              child: Text('Make Payment'),
             ),
           ],
         ),
@@ -60,20 +59,22 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  // Function to sign up user
-  void signUp() async {
+  // Function to make payment
+  void makePayment() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       try {
-        UserCredential userCredential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(email: _email, password: _password);
-        // Store user information in Firestore database
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(userCredential.user.uid)
-            .set({
-          'email': _email,
+        // Store payment information in Firestore database
+        await FirebaseFirestore.instance.collection('payments').add({
+          'phoneNumber': _phoneNumber,
+          'amount': _amount,
+          'userId': FirebaseAuth.instance.currentUser.uid,
         });
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Payment successful'),
+          ),
+        );
         Navigator.pop(context);
       } catch (e) {
         print(e.message);
@@ -88,8 +89,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Sign Up',
-      home: SignUpPage(),
+      title: 'Make Payment',
+      home: PaymentPage(),
     );
   }
 }
